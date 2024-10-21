@@ -155,4 +155,20 @@ describe("Testeo de funciones del boletin",function(){
         
     });
 
+    describe("Testeo de la funcion bonoloto()",()=>{
+   
+        
+        
+
+
+        datos5.forEach((element) =>{
+            it(('Los parametros'), () => {
+                expect(digitoHexa2Dec(element.str)).toEqual(element.esperado);
+
+            });
+        })
+
+        
+    });
+
 });

@@ -117,3 +117,28 @@ function digitoHexa2Dec(x){
        }
     
 }
+
+function bonoloto(){
+    let array=[];
+    
+    for(let i = 0;i<6;i++){
+
+        valido=true;
+        do{
+
+            let numero_random = Math.floor((Math.random()*48)+1);
+
+            for(let i = 0 ;i<array.length;i++){
+                if(array[i]==numero_random){
+                    valido=false
+                }
+
+            }
+
+            array[i]=numero_random
+        }while(!valido);
+        return array;
+    }
+
+
+}
