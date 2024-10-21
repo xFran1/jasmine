@@ -137,8 +137,11 @@ function bonoloto(){
 
             array[i]=numero_random
         }while(!valido);
-        return array;
     }
+    return array;
+
 
 
 }
+
+

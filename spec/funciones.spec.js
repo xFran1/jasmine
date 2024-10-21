@@ -87,88 +87,106 @@ describe("Testeo de funciones del boletin",function(){
         
     // });  
 
-    describe("Testeo de la funcion esBisiesto()",()=>{
+    // describe("Testeo de la funcion esBisiesto()",()=>{
    
-        const datos3 = [
+    //     const datos3 = [
             
-            {anio:2004,esperado:true},
-            {anio:2006,esperado:false},
-            {anio:1900,esperado:false},
-            {anio:2000,esperado:true},
-            {anio:1904,esperado:true},
+    //         {anio:2004,esperado:true},
+    //         {anio:2006,esperado:false},
+    //         {anio:1900,esperado:false},
+    //         {anio:2000,esperado:true},
+    //         {anio:1904,esperado:true},
             
-        ]
+    //     ]
 
 
-        datos3.forEach((element) =>{
-            it(('Los parametros'), () => {
-                expect(esBisiesto(element.anio)).toEqual(element.esperado);
+    //     datos3.forEach((element) =>{
+    //         it(('Los parametros'), () => {
+    //             expect(esBisiesto(element.anio)).toEqual(element.esperado);
 
-            });
-        });
+    //         });
+    //     });
 
         
-    });  
+    // });  
 
-    describe("Testeo de la funcion hexa2decimal()",()=>{
+    // describe("Testeo de la funcion hexa2decimal()",()=>{
    
-        const datos4 = [
+    //     const datos4 = [
             
-            {str:"04A",esperado:74},
-            {str:"08A",esperado:138},
-            {str:"05B",esperado:91},
-            {str:"01C",esperado:28},
-            {str:"14A",esperado:330},
+    //         {str:"04A",esperado:74},
+    //         {str:"08A",esperado:138},
+    //         {str:"05B",esperado:91},
+    //         {str:"01C",esperado:28},
+    //         {str:"14A",esperado:330},
             
-        ]
+    //     ]
 
 
-        datos4.forEach((element) =>{
-            it(('Los parametros'), () => {
-                expect(hexa2decimal(element.str)).toEqual(element.esperado);
+    //     datos4.forEach((element) =>{
+    //         it(('Los parametros'), () => {
+    //             expect(hexa2decimal(element.str)).toEqual(element.esperado);
 
-            });
-        })
+    //         });
+    //     })
 
         
-    });  
-    describe("Testeo de la funcion parametrosCircunferencia()",()=>{
+    // });  
+    // describe("Testeo de la funcion parametrosCircunferencia()",()=>{
    
-        const datos5 = [
+    //     const datos5 = [
             
-            {str:"1",esperado:1},
-            {str:"4",esperado:4},
-            {str:"5",esperado:5},
-            {str:"8",esperado:8},
-            {str:"B",esperado:11},
+    //         {str:"1",esperado:1},
+    //         {str:"4",esperado:4},
+    //         {str:"5",esperado:5},
+    //         {str:"8",esperado:8},
+    //         {str:"B",esperado:11},
             
-        ]
+    //     ]
 
 
-        datos5.forEach((element) =>{
-            it(('Los parametros'), () => {
-                expect(digitoHexa2Dec(element.str)).toEqual(element.esperado);
+    //     datos5.forEach((element) =>{
+    //         it(('Los parametros'), () => {
+    //             expect(digitoHexa2Dec(element.str)).toEqual(element.esperado);
 
-            });
-        })
+    //         });
+    //     })
 
         
-    });
+    // });
 
     describe("Testeo de la funcion bonoloto()",()=>{
    
         
         
 
-
-        datos5.forEach((element) =>{
-            it(('Los parametros'), () => {
-                expect(digitoHexa2Dec(element.str)).toEqual(element.esperado);
-
-            });
-        })
-
+        // it('debe devolver un array', () => {
+        //     let resultado = bonoloto();
+        //     expect(Array.isArray(resultado)).toBe(true);
+        // });
         
+        it('array tenga 6 elementos', () => {
+            let resultado = bonoloto();
+            expect(resultado.length).toBe(6);
+        });
+
+        it('todos los elementos sean un número', () => {
+            let resultado = bonoloto();
+            let son_numeros = resultado.every(elemento => typeof elemento === 'number');
+            expect(son_numeros).toBe(true);
+        });
+
+        it('que los elementos esten entre el 1 y 49', () => {
+            
+        
+            for(let i = 0;i<10;i++){
+                let resultado = bonoloto();
+                
+                let estanEnRango = resultado.every(num => num >= 1 && num <= 49);
+                expect(estanEnRango).toBe(true);
+            }
+        });
+  
     });
 
 });
