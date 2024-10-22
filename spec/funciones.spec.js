@@ -1,4 +1,4 @@
-describe("Testeo de funciones del boletin",function(){
+// describe("Testeo de funciones del boletin",function(){
 
     // describe("Testeo de la funcion comprobarEsPar()",()=>{
    
@@ -155,38 +155,44 @@ describe("Testeo de funciones del boletin",function(){
         
     // });
 
-    describe("Testeo de la funcion bonoloto()",()=>{
+    
+
+    //});
+
+describe("Testeo de la funcion bonoloto()",()=>{
    
         
         
 
-        // it('debe devolver un array', () => {
-        //     let resultado = bonoloto();
-        //     expect(Array.isArray(resultado)).toBe(true);
-        // });
+    // it('debe devolver un array', () => {
+    //     let resultado = bonoloto();
+    //     expect(Array.isArray(resultado)).toBe(true);
+    // });
+    
+    it('array tenga 6 elementos', () => {
+        let resultado = bonoloto();
+        expect(resultado.length).toBe(6);
+    });
+
+    it('todos los elementos sean un número', () => {
+        let resultado = bonoloto();
+        let son_numeros = resultado.every(elemento => typeof elemento === 'number');
+        expect(son_numeros).toBe(true);
+    });
+
+    it('que los elementos esten entre el 1 y 49', () => {
         
-        it('array tenga 6 elementos', () => {
-            let resultado = bonoloto();
-            expect(resultado.length).toBe(6);
-        });
 
-        it('todos los elementos sean un número', () => {
-            let resultado = bonoloto();
-            let son_numeros = resultado.every(elemento => typeof elemento === 'number');
-            expect(son_numeros).toBe(true);
-        });
-
-        it('que los elementos esten entre el 1 y 49', () => {
+        for(let i = 0;i<1000;i++){
+            let resultado=bonoloto()
             
-        
-            for(let i = 0;i<10;i++){
-                let resultado = bonoloto();
-                
-                let estanEnRango = resultado.every(num => num >= 1 && num <= 49);
-                expect(estanEnRango).toBe(true);
+            
+            for(let j =0;j<6;j++){
+                expect(resultado[j]).toBeGreaterThan(0);
+                expect(resultado[j]).toBeLessThan(50);
             }
-        });
-  
+            
+        }
     });
 
 });

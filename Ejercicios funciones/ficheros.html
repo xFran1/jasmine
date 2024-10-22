@@ -10,15 +10,16 @@
 
 
     <script>
+        bonoloto()
         function bonoloto(){
             let array=[];
             
             for(let i = 0;i<6;i++){
 
-                valido=true;
                 do{
+                    valido=true;
 
-                    let numero_random = parseInt((Math.random()*48)+1);
+                    let numero_random = parseInt((Math.random()*49)+1);
 
                     for(let i = 0 ;i<array.length;i++){
                         if(array[i]==numero_random){

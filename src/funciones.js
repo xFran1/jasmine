@@ -120,23 +120,24 @@ function digitoHexa2Dec(x){
 
 function bonoloto(){
     let array=[];
-    
+    let numero_random;
     for(let i = 0;i<6;i++){
 
-        valido=true;
         do{
+            valido=true;
 
-            let numero_random = Math.floor((Math.random()*48)+1);
+             numero_random = parseInt((Math.random()*49)+1);
 
-            for(let i = 0 ;i<array.length;i++){
-                if(array[i]==numero_random){
+            for(let j = 0 ;j<array.length;j++){
+                if(array[j]==numero_random){
                     valido=false
                 }
 
             }
 
-            array[i]=numero_random
         }while(!valido);
+        array[i]=numero_random
+
     }
     return array;
 
