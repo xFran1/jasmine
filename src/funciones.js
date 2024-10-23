@@ -120,29 +120,61 @@ function digitoHexa2Dec(x){
 
 function bonoloto(){
     let array=[];
-    let numero_random;
+    let numero_random=0;
+    let valido=true;
+
     for(let i = 0;i<6;i++){
 
         do{
-            valido=true;
-
-             numero_random = parseInt((Math.random()*49)+1);
+            valido = true;
+            numero_random = parseInt((Math.random()*49)+1);
 
             for(let j = 0 ;j<array.length;j++){
                 if(array[j]==numero_random){
-                    valido=false
+                    valido=false;
                 }
 
             }
 
         }while(!valido);
-        array[i]=numero_random
+        array[i]=numero_random;
+        array.sort(function(a, b) {return b - a})
 
     }
     return array;
 
 
 
+}
+
+function promedio(array){
+    // if(!Array.isArray=='array'){
+    //  throw new error("No es un array");
+    // }
+    if(!(array instanceof Array)){
+        throw new Error("No es un array");
+
+    }
+    array.forEach(element => {
+        if(typeof element==='number'){
+            
+        }else{
+            throw new Error("No es un numero");
+        }
+    });
+    let media = 0;
+    array.forEach(element => {
+        media+=element;    
+    });
+            
+            
+    
+
+        
+    
+
+    return media/array.length;
+    
 }
 
 

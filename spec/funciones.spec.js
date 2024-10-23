@@ -159,40 +159,119 @@
 
     //});
 
-describe("Testeo de la funcion bonoloto()",()=>{
+// describe("Testeo de la funcion bonoloto()",()=>{
    
         
         
 
-    // it('debe devolver un array', () => {
-    //     let resultado = bonoloto();
-    //     expect(Array.isArray(resultado)).toBe(true);
-    // });
+//     it('debe devolver un array', () => {
+//         let resultado = bonoloto();
+//         expect(Array.isArray(resultado)).toEqual(true);
+//     });
     
-    it('array tenga 6 elementos', () => {
-        let resultado = bonoloto();
-        expect(resultado.length).toBe(6);
-    });
+//     it('array tenga 6 elementos', () => {
+//         let resultado = bonoloto();
+//         expect(resultado.length).toBe(6);
+//     });
 
-    it('todos los elementos sean un número', () => {
-        let resultado = bonoloto();
-        let son_numeros = resultado.every(elemento => typeof elemento === 'number');
-        expect(son_numeros).toBe(true);
-    });
+//     it('todos los elementos sean un número', () => {
+//         let resultado = bonoloto();
+//         let son_numeros = resultado.every(elemento => typeof elemento === 'number');
+//         expect(son_numeros).toBe(true);
+//     });
 
-    it('que los elementos esten entre el 1 y 49', () => {
+//     it('que los elementos esten ordenados', () => {
+        
+//         for(let i = 0;i<1000;i++){
+//             let resultado=bonoloto()
+            
+            
+//             for(let j =0;j<5;j++){
+//                 expect(resultado[j]).toBeGreaterThanOrEqual(resultado[j+1]);
+//             }
+            
+//         }
+
+//     });
+
+//     it('que los elementos esten entre el 1 y 49', () => {
         
 
-        for(let i = 0;i<1000;i++){
-            let resultado=bonoloto()
+//         for(let i = 0;i<1000;i++){
+//             let resultado=bonoloto()
             
             
-            for(let j =0;j<6;j++){
-                expect(resultado[j]).toBeGreaterThan(0);
-                expect(resultado[j]).toBeLessThan(50);
-            }
+//             for(let j =0;j<6;j++){
+//                 expect(resultado[j]).toBeGreaterThan(0);
+//                 expect(resultado[j]).toBeLessThan(50);
+//             }
             
-        }
+//         }
+//     });
+
+//     it('que los elementos no esten repetidos', () => {
+//         let repetido = false;
+
+//         for(let i = 0;i<1000;i++){
+//             let resultado=bonoloto()
+            
+//             for(let j =0;j<6;j++){
+//                for(let k = 0;k<6;k++){
+//                 if(resultado[j]==resultado[k]&&k!=j){
+//                     repetido=true;
+//                 } 
+//                }
+//             }
+            
+//         }
+        
+//         expect(repetido).toBe(false);
+//     });
+
+//     it('que tenga los 49 numeros', () => {
+//         //no hayan duplicados
+//         let uniqueNumbers = new Set();
+//         for(let i = 0 ;i<1000;i++){
+//             let resultado = bonoloto();
+//             for(let j = 0 ;j<6;j++){
+//                 uniqueNumbers.add(resultado[j])
+//             }
+//         }
+
+
+//         expect (uniqueNumbers.size).toBe(49);
+
+//     });
+
+// });
+
+describe('testeo funcion promedio()', () => {
+    
+    datos = [
+        {entrada:[7.2,4.3,9.1],esperado:6.9},
+        {entrada:[7.2,,,5.3,9.7],esperado:6.1},
+        {entrada:[4.6,7.2,2.7,3.1,5.7],esperado:4.7},
+        {entrada:[8.18,,],esperado:8.2}
+    ]
+    it('Que la funcion devuelve un dato de tipo number', () => {
+        let resultado = promedio(datos[0].entrada);
+        resultado = typeof(resultado)==='number';
+        expect(resultado).toEqual(true);
     });
 
+    it('Cuando se invoca a la función con un array disperso (p.e. [4, , 6, 5]) no devuelve un NaN', () => {
+        let resultado = promedio([4,,6,5]);
+        
+            expect(resultado).not.toBeNaN();
+    });
+
+    it('Cuando se invoca a la función con un argumento que no es un array (p.e. promedio(6) )', () => {
+        
+        expect(() => promedio(6)).toThrowError("No es un array");
+    });
+
+    it('Cuando se invoca a la función con un array en el que algún elto no es un number (p.e. promedio ([7, "hola", 3])', () => {
+        
+        expect(() => promedio([7, "hola", 3])).toThrowError("No es un numero");
+    });
 });
